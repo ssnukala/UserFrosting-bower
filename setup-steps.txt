@@ -1,0 +1,48 @@
+http://www.slideshare.net/weaverryan/cool-like-frontend-developer-grunt-requirejs-bower-and-other-tools-29177248
+
+1. Install node.js from https://nodejs.org/download/
+2. sudo npm install -g bower
+3. create a file .bowerrc with the path where you want your vendor files to be in
+{
+	"directory":"public/assets/vendor"
+}
+4. bower init
+5. bower install bootstrap --save
+6. Copy templates directory form UF
+find . -name '*html.twig.html' | while read f; do mv "$f" "${f//twig.html/twig}"; done
+7. npm init (creates package.json)
+8. npm install requirejs --save-dev
+9. update bower.json 
+    "sass-bootstrap": "~3.0.2",
+10. run bower install
+11. sudo npm install -g compass
+12. sudo npm install -g grunt-cli
+13. Add the following to
+package.json
+
+  "devDependencies": {
+    "requirejs": "^2.1.19",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "jshint-stylish": "~0.1.4",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+14. npm install
+15. Now add packages to bower.json
+  "dependencies": {
+    "sass-bootstrap": "~3.0.2",
+    "requirejs": "~2.1.19",
+    "jquery-validation": "1.14.0",
+    "jquery.tablesorter": "2.22.2",
+    "select2": "3.5.1",
+    "metisMenu": "2.0.2",
+    "morris.js": "0.5.1",
+    "bootstrap-modal": "2.2.5",
+    "bootstrap-switch":"3.3.2",
+    "datejs":"*",
+    "handlebars":"3.0.3"
+  },
