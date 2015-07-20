@@ -9,7 +9,7 @@ http://www.slideshare.net/weaverryan/cool-like-frontend-developer-grunt-requirej
 4. bower init
 5. bower install bootstrap --save
 6. Copy templates directory form UF
-find . -name '*html.twig.html' | while read f; do mv "$f" "${f//twig.html/twig}"; done
+find . -name '*.html' | while read f; do mv "$f" "${f//.html/.html.twig}"; done
 7. npm init (creates package.json)
 8. npm install requirejs --save-dev
 9. update bower.json 
