@@ -1,0 +1,14 @@
+
+<form action="{{ entity.id ? path('event_update', { 'id': entity.id }) : path('event_create') }}" method="post" {{ form_enctype(form) }} class="js-event-form" novalidate>
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.location) }}
+    {{ form_row(form.time) }}
+    {{ form_row(form.details) }}
+
+    {{ form_rest(form) }}
+
+    <button type="submit" class="button">Save</button>
+
+</form>

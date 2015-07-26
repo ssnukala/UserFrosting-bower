@@ -1,0 +1,32 @@
+{% extends 'EventBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/event_form.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <section class="event-show event-edit">
+        <header id="menu">
+            <a class="link" href="{{ path('event') }}">&larr; back to the event list</a>
+            <a class="link" href="{{ path('event_show', {'slug': entity.slug}) }}">show event</a>
+        </header>
+
+        <article>
+            <header class="map-container">
+                
+            </header>
+            <section>
+                {{ include('EventBundle:Event:_form.html.twig', {
+                    'form': edit_form
+                }) }}
+
+                <form action="{{ path('event_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button type="submit" class="button">Delete</button>
+                </form>
+            </section>
+        </article>
+    </section>
+{% endblock %}

@@ -1,0 +1,45 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{page.description}}">
+    <meta name="author" content="{{site.author}}">
+    
+    <title>{{site.site_title}} | {{page.title}}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{site.uri.favicon}}" />
+    
+        {% block requirejs %}
+            {{ include('_requirejs.html.twig', {
+                module: false
+            }) }}
+        {% endblock %}
+
+        {#
+            Traditional stylesheets block, except we use the assetsPath variable setup in config.yml
+        #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset(assetsPath~'/css/layout.css') }}"/>
+        {% endblock %}
+    
+</head>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        {% block requirejs %}
+            {{ include('EventBundle::_requirejs.html.twig', {
+                module: false
+            }) }}
+        {% endblock %}
+
+        {#
+            Traditional stylesheets block, except we use the assetsPath variable setup in config.yml
+        #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset(assetsPath~'/css/layout.css') }}"/>
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>

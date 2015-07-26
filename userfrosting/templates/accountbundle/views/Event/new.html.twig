@@ -1,0 +1,30 @@
+{% extends 'EventBundle::layout.html.twig' %}
+
+{% block requirejs %}
+    {{ include('EventBundle::_requirejs.html.twig', {
+        'module': 'app/event_new'
+    }) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/event_form.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <section class="event-show event-edit">
+        <header id="menu">
+            <a class="link" href="{{ path('event') }}">&larr; back to the event list</a>
+        </header>
+
+        <article>
+            <header class="map-container">
+                <img src="http://maps.googleapis.com/maps/api/staticmap?center=Somewhere,%20US&zoom=15&size=300x300&maptype=roadmap&sensor=false" />
+            </header>
+            <section>
+                {{ include('EventBundle:Event:_form.html.twig') }}
+            </section>
+        </article>
+    </section>
+{% endblock %}

@@ -1,0 +1,2 @@
+/*! srinivas 2015-07-24 */
+requirejs.config({paths:{domReady:"../vendor/domReady/domReady",jquery:"../vendor/jquery/dist/jquery.min",bootstrap:"../vendor/bootstrap/dist/js/bootstrap.min"},shim:{bootstrap:["jquery"]}});

@@ -1,0 +1,2 @@
+/*! srinivas 2015-07-24 */
+define(["jquery","domReady!"],function(a,b){a(".event-show article .map-container").on("click",function(){var b=a(this).data("green");b?a(this).css("border-color","#ffffff"):a(this).css("border-color","#e1ff9a"),a(this).data("green",!b)})});

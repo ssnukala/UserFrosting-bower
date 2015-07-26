@@ -1,2 +1,5 @@
 /node_modules/
 /public/assets/vendor/
+/bower/node_modules/
+/public/assets/
+/bower/assets/vendor/

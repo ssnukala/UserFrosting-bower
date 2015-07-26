@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            {%- if block('title') -%}
+                {{ block('title') }} | YAY! Starwars Events
+            {%- else -%}
+                Events from a Galaxy, far far away
+            {%- endif -%}
+        </title>
+
+        {#
+            This replaces the javascripts block. Required modules are added
+            to the dom as script tags with the async attribute. This means
+            that only the actual require.js file is "blocking" (except for IE9 and earlier),
+            and it's *less* important to have JavaScripts in the footer.
+            Additionally, putting them here (which will cause *some* blocking),
+            could cause your JavaScript to start responding faster since
+            it begins downloading earlier.
+
+            Usage in children templates (notice you don't need to call parent()),
+            since the app/default module is *always* loaded in _requirejs.html.twig.
+
+            {% block requirejs %}
+                {{ include('EventBundle::_requirejs.html.twig', {
+                    module: 'app/mypage'
+                }) }}
+            {% endblock %}
+        #}
+        {% block requirejs %}
+            {{ include('EventBundle::_requirejs.html.twig', {
+                module: false
+            }) }}
+        {% endblock %}
+
+        {#
+            Traditional stylesheets block, except we use the assetsPath variable setup in config.yml
+        #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset(assetsPath~'/css/layout.css') }}"/>
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            {#
+                This would be the *old* way to bring in JavaScript. But this
+                is not needed anymore - it's been replaced with the requirejs
+                stuff.
+
+                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+                {% javascripts
+                        'assets/vendor/bootstrap/dist/js/bootstrap.js'
+                        'bundles/event/js/jquery.blockUI.js'
+                        output='js/generated/main.js'
+                    %}
+                    <script type="text/javascript" src="{{ asset_url }}"></script>
+                {% endjavascripts %}
+            #}
+        {% endblock %}
+    </body>
+</html>
