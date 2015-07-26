@@ -1,9 +1,12 @@
 # UserFrosting-bower
-Implementing Bower for User frosting
-
+<h2>Implementing Bower for User frosting</h2>
+<p>This is an attempt to create front end framework for user frosting</p>
+<p>Still ways to go, but have been able to consolidat the javascript sources and also created a version of the Gruntfile.js. Any  input on how to get this organized properly and get it deployment ready is welcome.</p>
+<p>Please dorp me a note if you can help</p>
+<p>
 See the setup steps document to see all the things that I did to install the NPM modules.
 I have not included the Vendor directories here, please run
-
+</p>
 <ul>
 
 <li> sudo npm install -g grunt-cli</li>
