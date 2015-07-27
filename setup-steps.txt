@@ -17,7 +17,12 @@ find . -name '*.html' | while read f; do mv "$f" "${f//.html/.html.twig}"; done
 10. run bower install
 11. sudo npm install -g compass
 12. sudo npm install -g grunt-cli
-13. Add the following to
+13. 
+ruby -v
+sudo gem update --system
+sudo gem install compass
+sudo gem install sass
+14. Add the following to
 package.json
 
   "devDependencies": {
@@ -31,8 +36,8 @@ package.json
     "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-watch": "~0.5.3"
   }
-14. npm install
-15. Now add packages to bower.json
+15. npm install
+16. Now add packages to bower.json
   "dependencies": {
     "sass-bootstrap": "~3.0.2",
     "requirejs": "~2.1.19",
@@ -46,7 +51,7 @@ package.json
     "datejs":"*",
     "handlebars":"3.0.3"
   },
-16. sudo npm install grunt-ugly-folders --save-dev
+17. sudo npm install grunt-ugly-folders --save-dev
 add grunt.loadNpmTasks('grunt-ugly-folders'); to gruntfile.js
 
 sudo npm install grunt-newer --save-dev
@@ -54,9 +59,6 @@ sudo npm install grunt-contrib-imagemin --save-dev
 sudo npm install grunt-concurrent --save-dev
 sudo npm install dateformat
 sudo npm install grunt-contrib-compass --save-dev
-find . -name '*.sass' | while read f; do mv "$f" "${f//..sass/.sass}"; done
 sudo npm install grunt-contrib-sass --save-dev
 
-ruby -v
-sudo gem install sass
-
+find . -name '*.sass' | while read f; do mv "$f" "${f//..sass/.sass}"; done

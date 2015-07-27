@@ -45,6 +45,8 @@ module.exports = function (grunt) {
             // files or configuration
             main: {
                 options: {
+                // a cute way to put a banner on each file
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd , h:MM:ss TT") %> */\n',
                     mainConfigFile: '<%= appDir %>/js/common.js',
                     appDir: '<%= appDir %>',
                     baseUrl: './js',
@@ -297,57 +299,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ugly-folders');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');    
-
-//grunt.registerTask('uglifyFiles', 'Uglifies files', function () {
-//    var jsp = require("uglify-js").parser,
-//        pro = require("uglify-js").uglify,
-//        count = 0,
-//        appDir= 'assets',
-//        builtDir= '../public/assets';
-//    grunt.file.recurse(appDir, function callback(abspath, rootdir, subdir, filename) {
-//        // Exclude already minified files (with extension .min.js)
-//        if (!abspath.match(/\.min\.js$/i)) {
-//            // Get Abstract Syntax Tree
-//            var ast = jsp.parse(grunt.file.read(abspath));
-//            // If mangling
-//            // ast = pro.ast_mangle(ast);
-//            // If squeezing
-//            ast = pro.ast_squeeze(ast);
-//            // Write new file, using abspath or rootdir, subdir and filename
-//            grunt.file.write(builtDir, pro.gen_code(ast));
-//            count += 1;
-//        }
-//    });
-//
-//    grunt.log.oklns("Successfully uglified " + count + " files");
-//});
-
-//grunt.registerTask('uglifyFiles2', 'Uglifies files', function () {
-//    var jsp = require("uglify-js").parser,
-//        pro = require("uglify-js").uglify,
-//        count = 0,
-//        appDir= 'assets',
-//        builtDir= '../public/assets',
-//        ufDir= '../../userfrosting/bower';
-//
-//    grunt.file.expand(jsFilePaths).forEach(function (abspath) {
-//        // Exclude already minified files (with extension .min.js)
-//        if (!abspath.match(/\.min\.js$/i)) {
-//            // Get Abstract Syntax Tree
-//            var ast = jsp.parse(grunt.file.read(abspath));
-//            // If mangling
-//            // ast = pro.ast_mangle(ast);
-//            // If squeezing
-//            ast = pro.ast_squeeze(ast);
-//            // Write new file
-//            grunt.file.write(abspath.replace(/\.js$/i, '.min.js'), pro.gen_code(ast));
-//            count += 1;
-//        }
-//    });
-//
-//    grunt.log.oklns("Successfully uglified " + count + " files");
-//});
-
 
     // sub-task that copies assets to web/assets, and also cleans some things
     grunt.registerTask('copy:assets', ['clean:build', 'copy', 'clean:sass']);
